@@ -12,9 +12,11 @@ import RandomMeal from './components/RandomMeal';
 import FavoritesModal from './components/FavoritesModal';
 import MealModal from './components/MealModal';
 import ErrorMessage from './components/ErrorMessage';
-import { useAppSelector } from './hooks/redux';
+import { useAppSelector, useAppDispatch } from './hooks/redux';
+import { clearSearchResults, setSelectedMeal } from './store/slices/mealsSlice'; 
 
 const AppContent: React.FC = () => {
+  const dispatch = useAppDispatch();  
   const [showFavorites, setShowFavorites] = useState(false);
   const [showSearchSection, setShowSearchSection] = useState(false);
   const selectedMeal = useAppSelector((state) => state.meals.selectedMeal);
@@ -29,10 +31,15 @@ const AppContent: React.FC = () => {
   };
 
   const handleCloseMealModal = () => {
-    // We'll handle this in the MealModal component by dispatching setSelectedMeal(null)
+    dispatch(setSelectedMeal(null));  
   };
 
   const showResults = searchResults.length > 0 || searchQuery || selectedCategory || selectedArea || selectedIngredient;
+
+  const handleBack = () => {
+      dispatch(clearSearchResults());
+      setShowSearchSection(false);
+    };
 
   const getResultsTitle = () => {
     if (searchQuery) return `Search Results for "${searchQuery}"`;
@@ -70,6 +77,12 @@ const AppContent: React.FC = () => {
         {showResults && (
           <section className="mb-12">
             <div className="flex items-center justify-between mb-6">
+              <button
+                onClick={handleBack}
+                className="px-4 py-2 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-xl hover:from-orange-600 hover:to-red-600 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-200 disabled:opacity-50"
+              >
+                ← Back
+              </button>
               <h2 className="text-2xl font-bold text-gray-800">
                 {getResultsTitle()}
               </h2>
