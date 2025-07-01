@@ -1,4 +1,4 @@
-# Meal Explorer App
+Restaurant App
 
 A responsive React + TypeScript web application that lets users discover, search, filter, and save meal recipes using the [MealDB API](https://www.themealdb.com/). This project leverages Redux Toolkit for state management and follows best practices for async data fetching, caching favorites in localStorage, and modular component architecture.
 
