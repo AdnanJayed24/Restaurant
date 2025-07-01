@@ -21,14 +21,6 @@ const Header: React.FC<HeaderProps> = ({ onShowFavorites, onShowSearch }) => {
           
           <nav className="flex items-center space-x-4">
             <button
-              onClick={onShowSearch}
-              className="flex items-center space-x-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-200"
-            >
-              <Search className="h-4 w-4" />
-              <span className="hidden sm:inline">Search</span>
-            </button>
-            
-            <button
               onClick={onShowFavorites}
               className="flex items-center space-x-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-200 relative"
             >
