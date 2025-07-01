@@ -77,8 +77,3 @@ src/
 5. Open a Pull Request
 
 Please ensure TypeScript types and linting rules pass.
-
-
-📄 License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
