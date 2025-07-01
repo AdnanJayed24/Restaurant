@@ -28,7 +28,7 @@ A responsive React + TypeScript web application that lets users discover, search
 
 
 git clone https://github.com/AdnanJayed24/Restaurant.git
-cd restaurant
+
 
 2. Install dependencies
 
